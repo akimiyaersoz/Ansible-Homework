@@ -1,0 +1,18 @@
+- hosts: all
+  become: yes
+  tasks:
+  - name: Install apache
+    ansible.builtin.apt:
+      name: httpd
+      state: present
+    
+  - name: Start service httpd, if not started
+    ansible.builtin.service:
+      name: httpd
+      state: started  
+      enabled: yes
+
+
+  - name: Add the users
+    ansible.builtin.user:
+      name: [jenny, rose, jisoo, lisa]
