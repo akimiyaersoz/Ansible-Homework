@@ -2,7 +2,7 @@
   become: yes
   tasks:
   - name: Install apache
-    ansible.builtin.apt:
+    ansible.builtin.dnf:
       name: httpd
       state: present
     
@@ -15,4 +15,4 @@
 
   - name: Add the users
     ansible.builtin.user:
-      name: [jenny, rose, jisoo, lisa]
+      name: jenny
